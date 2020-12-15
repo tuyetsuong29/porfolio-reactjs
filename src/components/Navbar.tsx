@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 //STYLES
-import { SidebarWrapper, Title, NavLink } from "../utils/styled-components";
+import { SidebarWrapper, NavLink } from "../utils/styled-components";
 
 class Header extends Component {
   render() {
     return (
       <SidebarWrapper>
-        <Title>My Porfolio</Title>
         <NavLink>
           <Link to="/" className="Navbar-text">
             Home

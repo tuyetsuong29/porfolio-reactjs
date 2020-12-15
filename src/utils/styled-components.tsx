@@ -28,13 +28,8 @@ export const Header = styled.div`
   background-color: #f7f7f5;
 `;
 
-export const Title = styled.span`
-  height: 35%;
-  font-size: 1.6rem;
-`;
-
 export const NavLink = styled.div`
-  height: 50%;
   display: flex;
   flex-direction: column;
+  padding: 5rem 0 13rem 0;
 `;
