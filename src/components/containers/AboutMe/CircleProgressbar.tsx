@@ -11,7 +11,7 @@ declare namespace CircleProgressbar {
   export interface States {}
 }
 const styles: any = (theme: any) => ({
-  progressBar:{
+  progressBar: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -20,7 +20,7 @@ const styles: any = (theme: any) => ({
   circle: {
     width: "15%",
     fontFamily: "Lora, serif",
-    margin: "1rem 1rem 2rem 1rem",
+    margin: "0 1rem 2rem 1rem",
     fontWeight: 600,
   },
 });
@@ -32,8 +32,7 @@ class CircleProgressbar extends React.Component<
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.progressBar}
-      >
+      <div className={classes.progressBar}>
         <div className={classes.circle}>
           <CircularProgressbar
             value={0.7}

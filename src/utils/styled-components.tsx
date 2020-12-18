@@ -16,7 +16,7 @@ export const SidebarWrapper = styled.div`
   background-color: #787878;
   color: #fff;
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 `;
 
 export const Container = styled.div`

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 // library
 import { withStyles } from "@material-ui/styles";
 // component
-import { CardBody } from "../../utils/styled-components";
+import { CardBody } from "../../../utils/styled-components";
 import WrapperProject from "./WrapperProject";
-import background from "../../assets/background1.jpg";
-import tictoe from "../../assets/tictoe.png";
-import movie from "../../assets/moviea.png";
-import todoList from "../../assets/todolist.png";
-import user from "../../assets/usermanagement.png";
+import background from "../../../assets/background1.jpg";
+import tictoe from "../../../assets/tictoe.png";
+import movie from "../../../assets/moviea.png";
+import todoList from "../../../assets/todolist.png";
+import user from "../../../assets/usermanagement.png";
 
 declare namespace ProjectsPage {
   export interface Props {
@@ -19,12 +19,16 @@ declare namespace ProjectsPage {
 const styles: any = (theme: any) => ({
   background: {
     backgroundImage: `url(${background})`,
+    backgroundAttachment: "fixed",
+    backgroundPosition: "center",
+    backgroundSize: "100% ",
+    backgroundRepeat: "no-repeat",
   },
   project: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: "0 1.5rem 3.5rem 1.5rem",
+    margin: "1.5rem 1.5rem 1.5rem 1.5rem",
   },
   imageWrapper: {
     height: "15rem",
@@ -60,15 +64,17 @@ const styles: any = (theme: any) => ({
     width: "6rem",
     borderRadius: "26px",
     cursor: "pointer",
-    marginLeft: "6rem",
-    marginBottom: "0.5rem",
+    margin: "0 0 0.5rem 7rem",
+    "&:hover": {
+      backgroundColor: "#DEB887",
+    },
   },
 });
 
 class ProjectsPage extends Component {
   props: any = this.props;
   render() {
-    const { history, classes } = this.props;
+    const { classes } = this.props;
     return (
       <CardBody className={classes.background}>
         <div className={classes.project}>

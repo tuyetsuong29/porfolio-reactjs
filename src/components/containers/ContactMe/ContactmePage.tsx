@@ -1,9 +1,12 @@
 import React from "react";
 //component
 import { CardBody } from "../../../utils/styled-components";
-import background from "../../../assets/contact.jpg";
+import background from "../../../assets/contactme4.jpg";
 //library
 import { withStyles } from "@material-ui/styles";
+import TadaReveal from "../../AnimationText/TadaReveal";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 declare namespace ContactmePage {
   export interface Props {
@@ -15,39 +18,35 @@ declare namespace ContactmePage {
 const styles: any = (theme: any) => ({
   background: {
     backgroundImage: `url(${background})`,
-
-    backgroundSize:"cover",
+    backgroundSize: " cover",
     backgroundRepeat: "no-repeat",
+    borderRadius: "70px",
   },
-  textDropdown: {
-    position: "relative",
-    display: "inline-block",
-    "&:hover": {
-      texttransform: "uppercase",
-    },
+  text: {
+    fontSize: "1.5rem",
+    color: "white",
   },
-  iconMail: {
+  icon: {
+    fontSize: "2rem",
+    color: "white",
+    fontWeight: 600,
+  },
+  textlink: {
+    height: "auto",
+    fontSize: "1.3rem",
+    color: "white",
     textDecoration: "none",
-    fontSize: "1.2rem",
-    color: "#3b3737",
-    cursor: "pointer",
+    fontWeight: 100,
     "&:hover": {
-      contentDropdown: {
-        display: "block",
-      },
+      color: "#483D8B",
+      fontWeight: 600,
     },
   },
-  contentDropdown: {
-    display: "none",
-    position: "absolute",
-    backgroundColor: "#f9f9f9",
-    minwidth: "160px",
-    boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2)",
-    padding: "12px 16px",
-    zIndex: 1,
+  boxInfomation: {
+    display: "flex",
+    flexDirection: "row",
   },
 });
-
 class ContactmePage extends React.Component<
   ContactmePage.Props,
   ContactmePage.States
@@ -56,26 +55,19 @@ class ContactmePage extends React.Component<
     const { classes } = this.props;
     return (
       <CardBody className={classes.background}>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo magni perferendis nostrum culpa. Eos laudantium debitis unde natus nisi optio aspernatur fugit excepturi, cumque consectetur officiis, rerum eligendi repellendus voluptas.</p>
-        <div className={classes.textDropdown}>
-          <span className={classes.iconMail}>
-            {/* <i className="fas fa-envelope"></i>  */}
-            Send a mail
-          </span>
-          <div className={classes.contentDropdown}>
-            <a href="mailto:nguyentuyetsuong0604@gmail.com">
-              nguyentuyetsuong0604@gmail.com
-            </a>
-          </div>
+        <TadaReveal className={classes.text} />
+        <p className={classes.text}></p>
+        <div className={classes.boxInfomation}>
+          <MailOutlineIcon className={classes.icon} />
+          <a className={classes.textlink} href="nguyentuyetsuong0604@gmail.com">
+            <i> :nguyentuyetsuong0604@gmail.com</i>
+          </a>
         </div>
-        <div className={classes.textDropdown}>
-          <span className={classes.iconMail}>
-            {/* <i className="fas fa-mobile-alt"></i> */}
-            Call me
-          </span>
-          <div className={classes.contentDropdown}>
-            <a href="tel:0798.210.776">0798210776</a>
-          </div>
+        <div className={classes.boxInfomation}>
+          <WhatsAppIcon className={classes.icon} />
+          <p className={classes.textlink}>
+            <i>:0798.210.776</i>
+          </p>
         </div>
       </CardBody>
     );

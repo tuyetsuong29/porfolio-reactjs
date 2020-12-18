@@ -1,6 +1,6 @@
 import React from "react";
 import AboutMePage from "./components/containers/AboutMe/AboutmePage";
-import MyProjectsPage from "./components/MyProject/ProjectsPage";
+import MyProjectsPage from "./components/containers/MyProject/ProjectsPage";
 import ContactMePage from "./components/containers/ContactMe/ContactmePage";
 import Home from "./components/containers/Home/Home";
 import { Route, Switch } from "react-router-dom";

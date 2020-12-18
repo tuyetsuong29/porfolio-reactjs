@@ -34,10 +34,6 @@ const styles: any = (theme: any) => ({
     paddingTop: "4rem",
     fontSize: "2rem",
   },
-  textRun:{
-    display:"flex",
-    textAlign:"center",
-  }
 });
 
 class Home extends React.Component<Home.Props, Home.States> {
@@ -48,7 +44,7 @@ class Home extends React.Component<Home.Props, Home.States> {
         <div className="card card-custom">
           <div className={classes.background}>
             <div className={classes.text}>
-              <AnimationReveal clasName={classes.textRun} />
+              <AnimationReveal />
               <h3 className={classes.name}>
                 <i> I'm Suong Nguyen</i>
               </h3>
