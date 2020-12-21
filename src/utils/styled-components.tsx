@@ -43,6 +43,7 @@ export const NavLink = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5rem 0 13rem 0;
+  font-family: "Lora", serif;
 `;
 export const CardBody = styled.div`
   overflow: auto;

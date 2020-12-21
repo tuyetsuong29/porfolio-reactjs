@@ -15,7 +15,7 @@ const Breadcrumbs = (props: any) => {
   return (
     <MUIBreadcrumbs aria-label="breadcrumb">
       {pathnames.length > 0 ? (
-        <Link onClick={() => history.push("/")}>Home</Link>
+        <Link style={{ fontFamily: "Lora, serif" }} onClick={() => history.push("/")}>Home</Link>
       ) : (
         <Typography> Home </Typography>
       )}
@@ -23,9 +23,11 @@ const Breadcrumbs = (props: any) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;
         return isLast ? (
-          <Typography key={name}>{name}</Typography>
+          <Typography style={{ fontFamily: "Lora, serif" }} key={name}>
+            {name}
+          </Typography>
         ) : (
-          <Link key={name} onClick={() => history.push(routeTo)}>
+          <Link  style={{ fontFamily: "Lora, serif" }} key={name} onClick={() => history.push(routeTo)}>
             {name}
           </Link>
         );

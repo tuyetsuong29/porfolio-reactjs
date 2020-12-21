@@ -9,6 +9,7 @@ import { withStyles } from "@material-ui/styles";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import DoubleArrowOutlinedIcon from "@material-ui/icons/DoubleArrowOutlined";
+import { Grid } from "@material-ui/core";
 
 declare namespace ContactmePage {
   export interface Props {
@@ -60,16 +61,22 @@ const styles: any = (theme: any) => ({
   infoModal: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: "2.5rem",
   },
-  nameCompany: {
-    margin: "0 1rem 0 2.5rem",
+  boxModal: {
+    display: "flex",
+    flexDirection: "column",
+    width: "30%",
   },
   titleForm: {
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     margin: "2.5rem 0 2.5rem 0",
     textAlign: "center",
     fontWeight: 600,
+  },
+  textForm: {
+    fontSize: "1rem",
   },
   inputArea: {
     height: "2rem",
@@ -78,15 +85,6 @@ const styles: any = (theme: any) => ({
   },
   button: {
     marginTop: "1rem",
-  },
-  textOpinion: {
-    marginTop: "2rem",
-    overflow: "hidden",
-  },
-  confirmInfo: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "0 1rem 0 1rem",
   },
   allButton: {
     cursor: "pointer",
@@ -157,7 +155,10 @@ class ContactmePage extends React.Component<
         <p className={classes.text}></p>
         <div className={classes.boxInfomation}>
           <MailOutlineIcon className={classes.icon} />
-          <a className={classes.textlink} href="nguyentuyetsuong0604@gmail.com">
+          <a
+            className={classes.textlink}
+            href="https://mail.google.com/mail/u/0/#inbox"
+          >
             <i> :nguyentuyetsuong0604@gmail.com</i>
           </a>
         </div>
@@ -173,10 +174,11 @@ class ContactmePage extends React.Component<
             className={classes.buttonshowForm}
             onClick={() => this.showSuggestionBox()}
           >
-            <i>
-              {" "}
-              :I want hearing from you <strong>"Click here"</strong>
-            </i>
+            {" "}
+            I want hearing from you{" "}
+            <strong>
+              <i>"Click here"</i>
+            </strong>
           </span>
         </div>
         {/* ====suggestionsForm==== */}
@@ -190,8 +192,8 @@ class ContactmePage extends React.Component<
                       <i>Suggestion Box</i>
                     </p>
                     <div className={classes.infoModal}>
-                      <div>
-                        <label>Name:</label>
+                      <div className={classes.boxModal}>
+                        <label>Name</label>
                         <input
                           className={classes.inputArea}
                           type="text"
@@ -199,8 +201,8 @@ class ContactmePage extends React.Component<
                           placeholder="Type your name.."
                         ></input>
                       </div>
-                      <div className={classes.nameCompany}>
-                        <label>Name Company:</label>
+                      <div className={classes.boxModal}>
+                        <label>Name Company</label>
                         <input
                           type="text"
                           className={classes.inputArea}
@@ -208,8 +210,8 @@ class ContactmePage extends React.Component<
                           placeholder="Type your name company.."
                         ></input>
                       </div>
-                      <div>
-                        <label>Position:</label>
+                      <div className={classes.boxModal}>
+                        <label>Position</label>
                         <input
                           type="text"
                           className={classes.inputArea}
@@ -257,29 +259,39 @@ class ContactmePage extends React.Component<
                     <h2 className={classes.titleForm}>
                       <i>Please Confirm Your Infomation</i>
                     </h2>
-                    <div className={classes.confirmInfo}>
-                      <p>
-                        <b>Name:</b>
-                      </p>
-                      <p>{inforUser.name}</p>
-                    </div>
-                    <div className={classes.confirmInfo}>
-                      <p>
-                        <b>Name Company:</b>
-                      </p>
-                      <p>{inforUser.nameCompany}</p>
-                    </div>
-                    <div className={classes.confirmInfo}>
-                      <p>
-                        <b>Position:</b>
-                      </p>
-                      <p>{inforUser.position}</p>
-                    </div>
-                    <div className={classes.confirmInfo}>
-                      <p>
-                        <b>Your Opinion:</b>
-                      </p>
-                      <p>{inforUser.note}</p>
+                    <div>
+                      <Grid container>
+                        <Grid item xs={3}>
+                          <b>Name:</b>
+                        </Grid>
+                        <Grid item xs={9}>
+                          {inforUser.name}
+                        </Grid>
+                      </Grid>
+                      <Grid container>
+                        <Grid item xs={3}>
+                          <b>Name Company:</b>
+                        </Grid>
+                        <Grid item xs={9}>
+                          {inforUser.nameCompany}
+                        </Grid>
+                      </Grid>
+                      <Grid container>
+                        <Grid item xs={3}>
+                          <b>Position:</b>
+                        </Grid>
+                        <Grid item xs={9}>
+                          {inforUser.position}
+                        </Grid>
+                      </Grid>
+                      <Grid container>
+                        <Grid item xs={3}>
+                          <b>Your Opinion:</b>
+                        </Grid>
+                        <Grid item xs={9}>
+                          {inforUser.note}
+                        </Grid>
+                      </Grid>
                     </div>
                   </div>
                   <div className={classes.button}>
