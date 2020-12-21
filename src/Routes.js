@@ -19,12 +19,10 @@ class Routes extends React.Component {
     return (
       <BodyWrapper>
         <Navbar />
-
         <Container>
           <Header>
             <Breadcrumbs />
           </Header>
-
           <BodyWrraper>
             <Switch>
               <Route exact from="/" render={(props) => <Home {...props} />} />

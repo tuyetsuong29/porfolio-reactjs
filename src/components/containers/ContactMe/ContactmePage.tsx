@@ -33,12 +33,11 @@ const styles: any = (theme: any) => ({
     color: "white",
   },
   icon: {
-    fontSize: "1.3rem",
-    color: "white",
+    fontSize: "1.5rem",
     fontWeight: 600,
+    height: "auto",
   },
   textlink: {
-    height: "auto",
     fontSize: "1.3rem",
     color: "white",
     textDecoration: "none",

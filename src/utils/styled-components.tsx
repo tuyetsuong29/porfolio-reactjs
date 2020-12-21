@@ -26,15 +26,15 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  height: 4rem;
+  height: 10%;
   padding: 1.2rem;
   background-color: white;
   font-family: "Lora", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 `;
 
 export const BodyWrraper = styled.div`
-  height: 100%;
+  height: 90%;
   background-color: #f8f8f8;
   padding: 2rem;
 `;

@@ -21,8 +21,9 @@ const styles: any = (theme: any) => ({
     backgroundImage: `url(${background})`,
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
-    backgroundSize: "100% ",
+    backgroundSize: "cover ",
     backgroundRepeat: "no-repeat",
+    paddingBottom: 0,
   },
   project: {
     display: "flex",
@@ -32,7 +33,7 @@ const styles: any = (theme: any) => ({
   },
   imageWrapper: {
     height: "15rem",
-    weight: "100%",
+    width: "100%",
   },
   imageProject: {
     width: "100%",

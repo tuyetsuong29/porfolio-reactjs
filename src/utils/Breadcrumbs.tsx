@@ -15,9 +15,14 @@ const Breadcrumbs = (props: any) => {
   return (
     <MUIBreadcrumbs aria-label="breadcrumb">
       {pathnames.length > 0 ? (
-        <Link style={{ fontFamily: "Lora, serif" }} onClick={() => history.push("/")}>Home</Link>
+        <Link
+          style={{ fontFamily: "Lora, serif" }}
+          onClick={() => history.push("/")}
+        >
+          Home
+        </Link>
       ) : (
-        <Typography> Home </Typography>
+        <Typography style={{ fontFamily: "Lora, serif" }}> Home </Typography>
       )}
       {pathnames.map((name: string, index: number) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
@@ -27,7 +32,11 @@ const Breadcrumbs = (props: any) => {
             {name}
           </Typography>
         ) : (
-          <Link  style={{ fontFamily: "Lora, serif" }} key={name} onClick={() => history.push(routeTo)}>
+          <Link
+            style={{ fontFamily: "Lora, serif" }}
+            key={name}
+            onClick={() => history.push(routeTo)}
+          >
             {name}
           </Link>
         );
