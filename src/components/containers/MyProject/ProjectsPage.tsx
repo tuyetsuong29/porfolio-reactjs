@@ -164,7 +164,7 @@ class ProjectsPage extends Component {
                 <div className={classes.button}>
                   <a
                     className={classes.textLink}
-                    href="https://github.com/tuyetsuong29/newtictoe"
+                    href="https://github.com/tuyetsuong29/user-manager"
                   >
                     My Github
                   </a>
@@ -179,8 +179,3 @@ class ProjectsPage extends Component {
 }
 
 export default withStyles(styles)(ProjectsPage);
-// <>
-//   <Button onClick={() => history.push("/Home/MyProjects/1")}>engineer</Button>
-//   <Button onClick={() => history.push("/Home/MyProjects/2")}>marketer</Button>
-//   <Button onClick={() => history.push("/Home/MyProjects/3")}>designer</Button>
-// </>
