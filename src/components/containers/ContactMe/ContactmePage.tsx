@@ -2,12 +2,13 @@ import React from "react";
 //component
 import { CardBody } from "../../../utils/styled-components";
 import background from "../../../assets/contactme4.jpg";
+import PopupForm from "./PopupForm";
+import TadaReveal from "../../AnimationText/TadaReveal";
 //library
 import { withStyles } from "@material-ui/styles";
-import TadaReveal from "../../AnimationText/TadaReveal";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import PopupForm from "./PopupForm";
+import DoubleArrowOutlinedIcon from "@material-ui/icons/DoubleArrowOutlined";
 
 declare namespace ContactmePage {
   export interface Props {
@@ -15,6 +16,7 @@ declare namespace ContactmePage {
   }
   export interface States {
     open: boolean;
+    show: boolean;
     inforUser: any;
   }
 }
@@ -30,7 +32,7 @@ const styles: any = (theme: any) => ({
     color: "white",
   },
   icon: {
-    fontSize: "2rem",
+    fontSize: "1.3rem",
     color: "white",
     fontWeight: 600,
   },
@@ -52,12 +54,58 @@ const styles: any = (theme: any) => ({
   infoUser: {
     height: "auto",
   },
+  formPopup: {
+    paddingBottom: "3rem",
+  },
   infoModal: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    marginBottom: "2.5rem",
   },
-  textopiniom: {},
+  nameCompany: {
+    margin: "0 1rem 0 2.5rem",
+  },
+  titleForm: {
+    fontSize: "1.5rem",
+    margin: "2.5rem 0 2.5rem 0",
+    textAlign: "center",
+    fontWeight: 600,
+  },
+  inputArea: {
+    height: "2rem",
+    borderRadius: "8px",
+    border: "1px solid 	#989898",
+  },
+  button: {
+    marginTop: "1rem",
+  },
+  textOpinion: {
+    marginTop: "2rem",
+    overflow: "hidden",
+  },
+  confirmInfo: {
+    display: "flex",
+    flexDirection: "row",
+    margin: "0 1rem 0 1rem",
+  },
+  allButton: {
+    cursor: "pointer",
+    backgroundColor: "#1976d2",
+    color: "white",
+    border: "none",
+    marginLeft: "1rem",
+    float: "right",
+  },
+  buttonshowForm: {
+    cursor: "pointer",
+    color: "white",
+    fontSize: "1.2rem",
+    "&:hover": {
+      color: "#483D8B",
+      fontWeight: 600,
+      textDecoration: "underline",
+    },
+  },
 });
 class ContactmePage extends React.Component<
   ContactmePage.Props,
@@ -71,10 +119,16 @@ class ContactmePage extends React.Component<
       position: "",
       note: "",
     },
+    show: false,
   };
-  handleShowDialog = () => {
+  showSuggestionBox = () => {
     this.setState({
-      open: !this.state.open,
+      open: true,
+    });
+  };
+  handleClose = () => {
+    this.setState({
+      show: false,
     });
   };
   handleChange = (e: any) => {
@@ -83,17 +137,20 @@ class ContactmePage extends React.Component<
     data[e.target.name] = e.target.value;
     this.setState(state);
   };
-  handleSubmit = () => {
+  ShowConfirmForm = () => {
     this.setState({
-      inforUser: this.state.inforUser,
+      open: false,
+      show: true,
     });
   };
+  showAlert = () => {
+    alert(
+      "Don't worry!! I want to hear everything from you, give it a try. Thank you very much"
+    );
+  };
   render() {
-    console.log("inforUser", this.state.inforUser.name);
-    console.log("inforUser", this.state.inforUser.nameCompany);
-    console.log("inforUser", this.state.inforUser.position);
-    console.log("inforUser", this.state.inforUser.note);
     const { classes } = this.props;
+    const { inforUser, show, open } = this.state;
     return (
       <CardBody className={classes.background}>
         <TadaReveal className={classes.text} />
@@ -110,56 +167,43 @@ class ContactmePage extends React.Component<
             <i>:0798.210.776</i>
           </p>
         </div>
-        <div>
-          <button onClick={() => this.handleShowDialog()}>
-            <i>Click here</i>
-          </button>
+        <div className={classes.boxInfomation}>
+          <DoubleArrowOutlinedIcon className={classes.icon} />
+          <span
+            className={classes.buttonshowForm}
+            onClick={() => this.showSuggestionBox()}
+          >
+            <i>
+              {" "}
+              :I want hearing from you <strong>"Click here"</strong>
+            </i>
+          </span>
         </div>
-        {/* =============== */}
+        {/* ====suggestionsForm==== */}
         <div>
-          {this.state.open && (
+          {open && (
             <PopupForm>
               {
-                <CardBody style={{ paddingBottom: "3rem" }}>
-                  <form
-                    onChange={(e: any) => this.handleChange(e)}
-                    onSubmit={() => this.handleSubmit()}
-                  >
-                    <p
-                      style={{
-                        fontSize: "1.5rem",
-                        margin: "2.5rem 0 2.5rem 0",
-                        textAlign: "center",
-                        fontWeight: 600,
-                      }}
-                    >
+                <CardBody className={classes.formPopup}>
+                  <form onChange={(e: any) => this.handleChange(e)}>
+                    <p className={classes.titleForm}>
                       <i>Suggestion Box</i>
                     </p>
                     <div className={classes.infoModal}>
                       <div>
                         <label>Name:</label>
                         <input
-                          style={{
-                            height: "2rem",
-                            borderRadius: "8px",
-                            border: "1px solid 	#989898",
-                          }}
+                          className={classes.inputArea}
                           type="text"
-                          className=" form-control col-sm-4"
                           name="name"
                           placeholder="Type your name.."
                         ></input>
                       </div>
-                      <div style={{ marginLeft: "1.5rem" }}>
+                      <div className={classes.nameCompany}>
                         <label>Name Company:</label>
                         <input
-                          style={{
-                            height: "2rem",
-                            borderRadius: "8px",
-                            border: "1px solid 	#989898",
-                          }}
                           type="text"
-                          className=" form-control col-sm-4 "
+                          className={classes.inputArea}
                           name="nameCompany"
                           placeholder="Type your name company.."
                         ></input>
@@ -167,40 +211,85 @@ class ContactmePage extends React.Component<
                       <div>
                         <label>Position:</label>
                         <input
-                          style={{
-                            height: "2rem",
-                            borderRadius: "8px",
-                            border: "1px solid 	#989898",
-                          }}
                           type="text"
-                          className="form-control col-sm-2"
+                          className={classes.inputArea}
                           name="position"
                           placeholder="Type your position.."
                         ></input>
                       </div>
                     </div>
-                    <div style={{ marginTop: "2.5rem" }}>
+                    <div>
                       <label>Your Opinion:</label>
                       <textarea
                         className={classes.textopiniom}
                         name="note"
-                        style={{
-                          height: "7rem",
-                          width: "100%",
-                          marginTop: "2rem",
-                          overflow: "hidden",
-                        }}
+                        style={{ height: "7rem", width: "100%" }}
                       ></textarea>
                     </div>
-                    <div style={{ marginTop: "1rem", float: "right" }}>
-                      <button type="button" className="btn btn-primary">
+                    <div className={classes.button}>
+                      <button
+                        className={classes.allButton}
+                        type="button"
+                        onClick={() => this.showAlert()}
+                      >
                         Cancle
                       </button>
-                      <button type="submit" className="btn btn-success">
+                      <button
+                        className={classes.allButton}
+                        onClick={() => this.ShowConfirmForm()}
+                      >
                         Submit
                       </button>
                     </div>
                   </form>
+                </CardBody>
+              }
+            </PopupForm>
+          )}
+        </div>
+        {/* ====ConfirmForm==== */}
+        <div>
+          {show && (
+            <PopupForm>
+              {
+                <CardBody className={classes.formPopup}>
+                  <div>
+                    <h2 className={classes.titleForm}>
+                      <i>Please Confirm Your Infomation</i>
+                    </h2>
+                    <div className={classes.confirmInfo}>
+                      <p>
+                        <b>Name:</b>
+                      </p>
+                      <p>{inforUser.name}</p>
+                    </div>
+                    <div className={classes.confirmInfo}>
+                      <p>
+                        <b>Name Company:</b>
+                      </p>
+                      <p>{inforUser.nameCompany}</p>
+                    </div>
+                    <div className={classes.confirmInfo}>
+                      <p>
+                        <b>Position:</b>
+                      </p>
+                      <p>{inforUser.position}</p>
+                    </div>
+                    <div className={classes.confirmInfo}>
+                      <p>
+                        <b>Your Opinion:</b>
+                      </p>
+                      <p>{inforUser.note}</p>
+                    </div>
+                  </div>
+                  <div className={classes.button}>
+                    <button
+                      className={classes.allButton}
+                      onClick={() => this.handleClose()}
+                    >
+                      OK
+                    </button>
+                  </div>
                 </CardBody>
               }
             </PopupForm>

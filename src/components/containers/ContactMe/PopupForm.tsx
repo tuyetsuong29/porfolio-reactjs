@@ -1,13 +1,11 @@
 import React from "react";
 //library
 import { withStyles } from "@material-ui/styles";
-// import {FontAwesome} from "react-fontawesome";
 
 declare namespace PopupForm {
   export interface Props {
     classes: any;
     children:any;
-
   }
   export interface States {}
 }
@@ -39,37 +37,12 @@ const styles: any = (theme: any) => ({
 });
 
 class PopupForm extends React.Component<PopupForm.Props, PopupForm.States> {
-  state = {
-    open: false,
-  };
-  closeModal = () => {
-    this.setState({
-      open: false,
-    });
-  };
- 
-
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.overlay}>
         <div className={classes.content}>
-      
         {this.props.children}
-          {/* <FontAwesome
-            name="times"
-            onClick={() => this.closeModal()}
-            style={{
-              color: "#000000",
-              padding: "10px",
-              cursor: "pointer",
-              backgroundColor: "transparent",
-              border: 0,
-              position: "absolute",
-              top: "0.3rem",
-              right: "0.5rem",
-            }}
-          /> */}
         </div>
       </div>
     );
